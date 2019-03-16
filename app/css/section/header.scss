@@ -1,0 +1,209 @@
+@import '../misc/mixins.scss';
+@import '../misc/fonts.scss';
+@import '../misc/var.scss';
+
+.header {
+	background-color: #fff;
+	@include box-shadow(0 1px 3px 0 rgba(#000, .2));
+	@extend %clearfix;
+	@include fira(bold);
+	height: rem(80px);
+	margin-bottom: rem(25px);
+}
+
+.header__left {
+	float: left;
+	width: 80%;
+	
+	@include phone {
+		width: 60%;
+	}
+}
+
+.header__right {
+	width: 20%;
+	float: right;
+	
+	@include phone {
+		width: 40%;
+	}
+}
+.header__left {
+	padding-top: rem(10px);
+}
+
+.contacts {
+	@extend %clearfix;
+	position: relative;
+	white-space: nowrap;
+}
+
+.user__avatar {
+	@include inlineblock(middle);
+	width: rem(60px);
+	height: rem(60px);
+	background-color: #ccc;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-position: center;   
+	border-radius: 50%;
+	border: 2px solid #bebebe;
+	
+	img {
+		display: none;
+	} 
+}
+
+.user__username {
+	padding-left: rem(10px);
+	color: $grey;
+	@include inlineblock(middle);
+	@include fira(regular);
+	font-size: $font_size;
+}
+
+.contacts__link {
+	color: $blue;
+	float: right;
+	padding-top: rem(30px);
+	text-decoration: none;
+	font-size: $font_size;
+	border-bottom: 1px dashed $blue;
+	@include transition();
+	
+	@include phone {
+		display: none;
+	}
+}
+
+.contacts__link-phone {
+	color: $blue;
+	float: right;
+	padding-top: rem(20px);
+	font-size: rem(40px);
+	display: none;
+	@include transition();
+	background: none;
+	
+	@include phone {
+		display: inline-block;
+	}
+	
+	&:hover, &:active {
+		color: $red;
+	}
+	
+}
+
+.contacts__link:hover, .contacts__link:active {
+	color: $red;
+	border-color: $red;
+}
+
+.contacts__dropdown {
+	right: 3%;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: .55556rem;
+    display: none;
+    position: absolute;
+    right: 3%;
+    top: 4.94444rem;
+    transition: .2s;
+    -webkit-transition: .2s;
+    z-index: 10;
+    
+    @include tablet {
+    	right: 0;
+    }
+}
+
+.contacts__dropdown:before {
+ 	background-color: #fff;
+	border-left: 1px solid #eee;
+	border-top: 1px solid #eee;
+	display: block;
+	height: rem(10px);
+	position: absolute;
+	right: rem(89px);
+	top: rem(-6px);
+	transform: rotate(80deg) skewY(-20deg) skewx(40deg);
+	-webkit-transform: rotate(80deg) skewY(-20deg) skewx(40deg);
+	-moz-transform: rotate(80deg) skewY(-20deg) skewx(40deg);
+	-ms-transform: rotate(80deg) skewY(-20deg) skewx(40deg);
+	width: rem(10px);
+	z-index: -1;
+	
+	@include phone {
+		right: rem(20px);
+	}
+}
+
+.contacts__dropdown:after {
+	display: block;
+    position: absolute;
+    right: 0;
+    height: 1.53333rem;
+    width: 100%;
+    bottom: 100%;
+}
+
+.contacts__dropdown:before,
+.contacts__dropdown:after {
+	content: '';
+	position: absolute;
+}
+
+.contacts__link:focus ~ .contacts__dropdown,
+.contacts__link:hover ~ .contacts__dropdown,
+.contacts__link:active ~ .contacts__dropdown,
+.contacts__dropdown:hover,
+.contacts__link-phone:hover ~ .contacts__dropdown {
+	display: block;
+	opacity: 1;
+}
+
+.contacts__dropdown-item {
+	border-bottom: 1px #eee solid;
+	transition: .2s;
+	-webkit-transition: .2s;
+	
+	&:hover {
+	    background-color: #33c1e3;
+	    
+	    &:first-child {
+	    	border-top-right-radius: rem(5px);
+	    	border-top-left-radius: rem(5px);
+	    }
+
+	    &:last-child {
+	    	border-bottom-right-radius: rem(5px);
+	    	border-bottom-left-radius: rem(5px);
+	    }
+	        
+	    .contacts__dropdown-link {
+	    	color: #FFF; 
+	  
+	    	.fa {
+	    		color: #FFF; 
+	    	}
+	    }
+	}
+}
+
+.contacts__dropdown-item .fa {
+	padding-right: rem(10px);
+	color: $blue;
+}
+
+.contacts__dropdown-link {
+    text-decoration: none;
+    padding: .5rem;
+    display: block;
+    transition: .2s;
+    -webkit-transition: .2s;
+    @include fira();
+    color: $grey; 
+}

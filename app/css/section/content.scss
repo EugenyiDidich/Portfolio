@@ -1,0 +1,440 @@
+@import '../misc/mixins.scss';
+@import '../misc/fonts.scss';
+@import '../misc/var.scss';
+
+.content .container {
+	@extend %clearfix;
+}
+
+
+.sidebar {
+	width: 25%;
+	float: left;
+	
+	@include laptop {
+		width: 100%;
+		float: none;
+		margin-bottom: rem(35px);
+	}
+
+	@include tablet {
+		width: 100%;
+		float: none;
+		margin-bottom: rem(35px);
+	}
+}
+
+.nav {
+	display: block;
+	width: 100%;
+}
+
+.nav__item {
+	display: block;
+	text-align: right;
+	padding: rem(10px) rem(20px) rem(10px) 0px;
+	
+	@include laptop {
+		display: inline-block;
+		text-align: left;
+	}
+
+	@include tablet {
+		display: inline-block;
+		text-align: left;
+	}
+
+	@include phone {
+		padding: rem(10px) rem(20px) rem(10px) 0px;
+	}
+
+}
+
+.nav__link {
+	display: block;
+	@include fira(regular);
+	color: $grey;
+	font-size: $font-size;
+	text-decoration: none;
+}
+
+.nav__link .fa {
+	padding-right: rem(5px);
+	
+	@include phone {
+		display: none;
+	}
+}
+
+
+.nav__item {
+	border-right: 6px solid transparent;  
+	
+	@include laptop {
+		border: 0 none;
+	}
+
+	@include tablet {
+		border: 0 none;
+	}
+
+	&:hover .nav__link {
+		@include transition();
+		color: $blue;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:active, &_active  {
+		border-color: $blue;
+		.nav__link {
+			color: $blue;
+			@include fira(bold);
+		}
+	}
+}
+
+.page-content {
+	width: 75%;
+	float: left;
+	
+	@include laptop {
+		width: 100%;
+	}
+	
+	@include tablet {
+		width: 100%;
+		float: none;
+	}
+}
+
+.about {
+	display: block;
+	
+	@include tablet {
+		// margin: 0 rem(20px);
+	}
+}
+
+
+.about__left {
+	width: rem(340px);
+	display: block; 
+	float: left;
+	
+	@include tablet {
+		width: 9.3125rem;
+		margin-right: rem(70px);
+	}
+
+	@include phone {
+		width: 100%;
+		text-align: center;
+		margin-bottom: rem(20px);
+	}
+}
+
+.about__right {
+	width: rem(380px);
+	display: block;
+	float: right;
+	
+	@include tablet {
+		width: rem(300px);
+		float: left;
+	}
+
+	@include phone {
+		width: 100%;
+	    float: left;
+		margin: 0 auto;
+		text-align: center;
+	}
+}
+
+.about__right-tab {
+	@include tablet {
+		width: rem(420px);
+		float: left;
+	}
+}
+
+.about__pic {
+	margin: auto; 
+	border-radius: 50%;
+	width: rem(220px);
+	height: rem(220px);
+	background-color: #ccc;
+	background-repeat: no-repeat;
+	background-position: center;   
+	-webkit-background-size: cover; 
+	-o-background-size: cover; 
+	background-size: cover; 
+	border: 5px solid #fff;
+	
+	@include tablet {
+		margin: 0 auto;
+		width: rem(165px);
+		height: rem(165px);
+	} 
+
+	img {
+		display: none;
+	}
+}
+
+.title  {
+	color: $grey;
+	font-size: rem(35px);
+	line-height: 35px; 
+	@include fira(medium);
+	padding-bottom: rem(20px);
+	white-space: nowrap;
+}
+
+.about__desc {
+	display: block;
+	height: rem(300px);
+	overflow: hidden;
+	overflow-y: scroll;
+	@include fira(light);
+	font-size: $font_size; 
+	
+	@include phone {
+		text-align: left;
+		height: 100%;
+		overflow: visible;
+		width: 90%;
+		float: none;
+		margin: 0 auto;
+	}
+}
+
+.about__btns {
+	display: block;
+	padding-top: rem(45px);
+	text-align: right;
+	
+	@include phone {
+		margin-bottom: rem(30px);
+	}
+}
+
+.btn {
+	@include btn($red);
+	
+	&:hover {
+		@include transition();
+		background: $red;
+		color: #fff; 
+	}
+}
+
+
+::-webkit-scrollbar-button {
+background-image:url('');
+background-repeat:no-repeat;
+width:5px;
+height:0px;
+}
+
+::-webkit-scrollbar-track {
+background-color:$white;
+}
+
+::-webkit-scrollbar-thumb {
+-webkit-border-radius: 3px;
+border-radius: 3px;
+background-color:$light_grey;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background-color:#56999f;
+}
+
+::-webkit-resizer{
+background-image:url('');
+background-repeat:no-repeat;
+width:4px;
+height:0px;
+}
+
+::-webkit-scrollbar{
+width: 5px;
+}
+
+// career
+.career .title {
+	margin-left: rem(60px);
+	
+	@include tablet {
+		margin: 0;
+	}
+
+	@include phone {
+		text-align: center;
+	}
+}
+.about__photo {
+	margin: 0 auto; 
+	border-radius: 10%;
+	width: rem(220px);
+	height: rem(220px);
+	background-repeat: no-repeat;
+	background-color: #CCC; 
+	background-position: 50%;
+	-webkit-background-size: cover; 
+	-o-background-size: cover; 
+	background-size: cover; 
+	
+	img {
+		display: none;
+	} 
+}
+
+.career__item {
+	text-align: right;
+	margin-bottom: rem(15px);
+	
+	&:first-child {
+		.career__block {
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	&:last-child {
+		.career__block {
+			&:after {
+				display: none;
+			}
+		}
+	}
+}
+
+.career__block {
+	width: rem(300px);
+	-webkit-box-shadow: (0 1px 3px 0 rgba(#000, .2)); 
+	box-shadow: (0 1px 3px 0 rgba(#000, .2)); 
+	-webkit-border-radius: 10px; 
+	 border-radius: 10px;  
+	display: inline-block;
+	position: relative;
+	text-align: left;
+	background: #fff;
+	padding: (10px);
+	
+	@include phone {
+		display: block;
+		margin: auto;
+		.career__year {
+			display: none;
+		}
+	}
+	
+	.career_title {
+		color: #5a5a5a;
+		font-size: rem(21px);
+	    @include fira(regular);
+	}
+
+	.career_occ, .career_date {
+		font-size: $font-size;
+		@include fira(light);
+		color: #727272; 
+	}
+	
+	&:hover {
+		@include transition();
+		color: $blue;
+		background: $blue;
+		
+		.career_title, .career_occ, 
+		.career_date {
+			color: #fff;
+		}
+		
+		
+		.career__year{
+			&:after {
+				background: $blue; 
+			}
+		} 
+	}
+	
+	&:before, &:after {
+		content: '';
+		display: block;
+		width: 1px;
+		background: #ddd;
+		position: absolute;
+		left: -9%;
+		
+		@include phone {
+			display: none;
+		}
+	}
+
+	&:before {
+		top: 0;
+		bottom: 50%;
+		margin-bottom: 0.825rem; 
+	}
+
+	&:after {
+		bottom: -1.375rem;
+		top: 3.625rem;
+		margin-top: 0.625rem;  
+	}
+}
+
+.career__year {
+	position: absolute;
+	right: 100%;
+	top: 50%;
+	line-height: 30px;
+	margin-top: rem(-15px);
+	margin-right: rem(38px);  
+	
+	&:after {
+		content: "";
+		width: rem(10px);
+		height: rem(10px);
+		background: #ccc;
+		-webkit-border-radius: 50%; 
+		border-radius: 50%;   
+		position: absolute;
+		right: rem(-14px);
+		top: 50%;
+		margin-top: rem(-5px);
+		z-index: 2;   
+	}
+}
+
+.career .about__left {
+	@include tablet {
+		width: 30%;
+	}
+
+	@include phone {
+		margin: 0 auto rem(20px);
+		float: none;
+		width: 100%;
+	}
+}
+
+.career .about__right {
+	@include tablet {
+		float: none;
+		width: 100%;
+	}
+
+	@include phone {
+		float: none;
+		margin: 0 auto;
+		width: 100%;
+	}
+}

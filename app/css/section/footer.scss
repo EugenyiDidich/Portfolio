@@ -1,0 +1,101 @@
+@import '../misc/mixins.scss';
+@import '../misc/fonts.scss';
+@import '../misc/var.scss';
+
+
+.footer .container {
+	@extend %clearfix;
+	@include fira(light);
+	font-size: 14px;
+}
+
+.footer {
+	background: $grey;
+	
+	@include phone {
+		height: 80px;
+	} 
+}
+
+.footer__left {
+	float: left;
+	
+	@include tablet {
+		width: 60%;
+	}
+
+	@include phone {
+		width: 100%;
+		float: none;
+	}
+}
+
+.footer__right {
+	float: right;
+	
+	@include tablet {
+		width: 40%;
+	}
+
+	@include phone {
+		width: 100%;
+		float: none;
+	}
+}
+
+.socials__item {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: rem(10px);
+}
+
+.socials__link {
+	width: rem(31px);
+	height: rem(30px);
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	background-color: #9c9c9c;
+    color: #414141;
+    display: inline-block;
+    text-align: center;
+    font-size: rem(16px);
+    line-height: 2rem;
+}
+
+.footer__left {
+	display: block;
+	height: 100%;
+}
+
+.socials {
+	float: right;
+	padding-top: rem(10px);
+	font-size: 0;
+	
+	@include phone {
+		float: none;
+		text-align: center;
+	}
+}
+
+.copyright {
+	padding-top: rem(15px); 
+    font-size: rem(14px);
+    color: #9c9c9c; 
+    
+    @include phone {
+		text-align: center;
+	}
+}
+
+.socials__link_vk:hover {
+	background-color: #45668E; 
+}
+
+.socials__link_in:hover {
+	background-color: #4183C4; 
+}
+
+.socials__link_bt:hover {
+	background-color: #4183C4; 
+}

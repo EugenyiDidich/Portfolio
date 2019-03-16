@@ -1,0 +1,105 @@
+@import '../misc/mixins.scss';
+@import '../misc/fonts.scss';
+@import '../misc/var.scss';
+// portfolio style
+
+$grey-ligten: #aeaeae;
+$font-size: rem(18px);
+
+.wrap {
+	// margin-left: 20px;
+}
+
+.about__title {
+	padding-left: rem(20px);
+	
+	@include phone {
+		text-align: center;
+	}
+}
+
+.content__list {
+	@extend %clearfix;
+	width: 100%;
+	height: 100%;
+	font-size: 0;
+}
+
+.content__item {
+	 width: 30%;
+     display: -moz-inline-stack;
+     display: inline-block;
+     vertical-align: top;
+     margin-bottom: rem(15px);
+     margin-left: rem(20px);
+     zoom: 1;
+     *display: inline;
+     -webkit-border-radius: 10px; 
+     border-radius: 10px; 
+     overflow: hidden;
+     -webkit-box-shadow: (0 1px 3px 0 rgba(#000, .2)); 
+	 box-shadow: (0 1px 3px 0 rgba(#000, .2));
+	 font-size: $font-size;
+	 @include transition();
+	 @extend %clearfix;
+	 
+	 &:hover {
+	 	-webkit-box-shadow: (0 4px 8px 0 rgba(#000, .2)); 
+	 	box-shadow: (0 4px 8px 0 rgba(#000, .2));
+	 }
+
+	 @include tablet {
+	 	width: 45%;
+	 }
+
+	 @include phone {
+	 	width: 90%;
+	 }
+}
+
+.block__link {
+	display: block;
+	text-align: center; 
+	
+	@include phone {
+	
+	 }
+}
+
+.block__top_img {
+	height: 100%;
+	width: 100%;
+}
+
+.block__bottom {
+	background: #fff;
+	padding: rem(20px);
+	 
+	.link__about_title {
+		color: $blue;
+		@include fira(regular);
+		font-size: rem(21px);
+		
+		&:hover {
+			color: $red;
+		}
+	}
+
+	.link__about_desc {
+		color: $grey;
+		font-size: rem(14px);
+		@include fira(light);
+		margin-bottom: rem(10px);
+	}
+
+	.link__about_name {
+		color: $grey-ligten;
+		font-size: rem(14px);
+		@include fira(bold);
+		
+		.fa {
+			padding-right: rem(5px);
+			font-size: rem(18px);
+		}
+	}
+}
